@@ -1,4 +1,3 @@
-import {useState} from 'react'
 import * as THREE from 'three'
 import './App.css'
 
@@ -20,11 +19,11 @@ camera.position.z = 6
 const geometry = new THREE.SphereGeometry(3, 64, 64)
 
 //Material
-const material = new THREE.MeshStandardMaterial( {
-    		map: new THREE.TextureLoader().load(
-        		'https://blog.playcanvas.com/assets/media/texture-earth.jpg'
-        )
-    } );
+const material = new THREE.MeshStandardMaterial({
+    map: new THREE.TextureLoader().load(
+        'https://blog.playcanvas.com/assets/media/texture-earth.jpg'
+    )
+});
 
 //https://1.bp.blogspot.com/-UUXaK5GCj-k/UcsKJRMgkVI/AAAAAAAACfM/sePP_H08JTQ/s1600/1.jpg
 //'https://blog.playcanvas.com/assets/media/texture-earth.jpg'
@@ -41,13 +40,13 @@ pointLight.position.set(0, 10, 10)
 scene.add(pointLight)
 
 //Renderer
-const canvas = document.querySelector('#webgl')
-const renderer = new THREE.WebGLRenderer({canvas})
+const canvas = document.querySelector('#webgl')!
+const renderer = new THREE.WebGLRenderer({canvas: canvas})
 renderer.setSize(window.innerWidth, window.innerHeight)
 renderer.render(scene, camera)
 renderer.setAnimationLoop(animation);
 
-function animation(time) {
+function animation(time: DOMHighResTimeStamp) {
     pointLight.position.x = Math.sin(time / 5000) * 3;
     // pointLight.position.y = 5+Math.cos(time / 10000) * 3;
 
@@ -60,12 +59,10 @@ function animation(time) {
 }
 
 function App() {
-    const [count, setCount] = useState(0)
-
-  return (
-    <>
-    </>
-  )
+    return (
+        <>
+        </>
+    )
 }
 
 export default App
