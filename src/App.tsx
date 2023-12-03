@@ -24,9 +24,9 @@ const geometry = new THREE.SphereGeometry(3, 64, 64)
 
 //Material
 const material = new THREE.MeshPhongMaterial({
-    map: new THREE.TextureLoader().load('./img/8k-earth-nightmap.jpg'),
-    normalMap: new THREE.TextureLoader().load('./img/8k-earth-normal-map.tif'),
-    specularMap: new THREE.TextureLoader().load('./img/8k-earth-specular-map.tif'),
+    map: new THREE.TextureLoader().load('/img/8k-earth-nightmap.jpg'),
+    normalMap: new THREE.TextureLoader().load('/img/8k-earth-normal-map.tif'),
+    specularMap: new THREE.TextureLoader().load('/img/8k-earth-specular-map.tif'),
     // bumpMap: new THREE.TextureLoader().load('/src/img/8k_earth_normal_map.jpg'),
     // bumpScale: 0.5,
     // specularMap: new THREE.TextureLoader().load('https://shadedrelief.com/natural3/ne3_data/16200/water_16k.png'),
@@ -42,7 +42,7 @@ scene.add(earthMesh)
 //Clouds
 const cloudGeometry = new THREE.SphereGeometry(3.01, 64, 64)
 const cloudMaterial = new THREE.MeshPhongMaterial({
-    map: new THREE.TextureLoader().load('./img/8k-earth-clouds.jpg'),
+    map: new THREE.TextureLoader().load('/img/8k-earth-clouds.jpg'),
     transparent: true,
     opacity: 0.5,
     depthWrite: false,
