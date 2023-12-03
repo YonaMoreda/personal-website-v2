@@ -1,6 +1,17 @@
 import * as THREE from 'three'
 import './App.css'
 import {FirstPersonControls} from "three/examples/jsm/controls/FirstPersonControls.js";
+import leftWingLogo from '../public/visor/left-wing-logo.svg'
+import bottomLeftStats from '../public/visor/bottom-left-stats.svg'
+import bottomVisor from '../public/visor/bottom-visor.svg'
+import centerVisor from '../public/visor/center-visor.svg'
+import dateTime from '../public/visor/date-time.svg'
+import leftShoulder from '../public/visor/left-shoulder.svg'
+import rightOrbitVisor from '../public/visor/right-orbit-visor.svg'
+import rightShoulder from '../public/visor/right-shoulder.svg'
+import topRightHealth from '../public/visor/top-right-health.svg'
+import manifestLogo from '../public/visor/manifest.vel.uix.eth.eff.svg'
+import triangle from '../public/visor/triangle.svg'
 
 //Scene
 const scene = new THREE.Scene()
@@ -26,14 +37,8 @@ const geometry = new THREE.SphereGeometry(3, 64, 64)
 const material = new THREE.MeshPhongMaterial({
     map: new THREE.TextureLoader().load('8k-earth-nightmap.jpg'),
     normalMap: new THREE.TextureLoader().load('8k-earth-normal-map.tif'),
-    specularMap: new THREE.TextureLoader().load('8k-earth-specular-map.tif'),
-    // bumpMap: new THREE.TextureLoader().load('/src/img/8k_earth_normal_map.jpg'),
-    // bumpScale: 0.5,
-    // specularMap: new THREE.TextureLoader().load('https://shadedrelief.com/natural3/ne3_data/16200/water_16k.png'),
+    specularMap: new THREE.TextureLoader().load('8k-earth-specular-map.tif')
 });
-
-//https://1.bp.blogspot.com/-UUXaK5GCj-k/UcsKJRMgkVI/AAAAAAAACfM/sePP_H08JTQ/s1600/1.jpg
-//'https://blog.playcanvas.com/assets/media/texture-earth.jpg'
 
 //Mesh
 const earthMesh = new THREE.Mesh(geometry, material)
@@ -98,6 +103,48 @@ function onWindowResize() {
 function App() {
     return (
         <>
+            <img src={leftWingLogo} style={{
+                position: "absolute",
+                left: 50,
+                top: (window.innerHeight / 2) - (738 / 2),
+                textAlign: "center"
+            }}/>
+            <img src={bottomLeftStats} style={{position: "absolute", left: 150, bottom: 50, textAlign: "center"}}/>
+            <img src={bottomVisor}
+                 style={{position: "absolute", left: window.innerWidth / 2, bottom: 50, textAlign: "center"}}/>
+            <img src={centerVisor} style={{
+                position: "absolute",
+                left: (window.innerWidth / 2) - (1012 / 2),
+                top: (window.innerHeight / 2) - (736 / 2),
+                textAlign: "center"
+            }}/>
+            <img src={dateTime} style={{position: "absolute", left: 150, top: 50, textAlign: "center"}}/>
+            <img src={leftShoulder} style={{
+                position: "absolute",
+                left: 270,
+                top: (window.innerHeight / 2) - (320 / 2),
+                textAlign: "center"
+            }}/>
+            <img src={rightOrbitVisor} style={{position: "absolute", right: 50, bottom: 50, textAlign: "center"}}/>
+            <img src={rightShoulder} style={{
+                position: "absolute",
+                right: 270,
+                top: (window.innerHeight / 2) - (320 / 2),
+                textAlign: "center"
+            }}/>
+            <img src={topRightHealth} style={{position: "absolute", right: 50, top: 50, textAlign: "center"}}/>
+            <img src={manifestLogo} style={{
+                position: "absolute",
+                right: 50,
+                top: (window.innerHeight / 2) - (215 / 2),
+                textAlign: "center"
+            }}/>
+            <img src={triangle} style={{
+                position: "absolute",
+                left: 50,
+                top: (window.innerHeight / 2) - (215 / 2) + 215,
+                textAlign: "center"
+            }}/>
         </>
     )
 }
