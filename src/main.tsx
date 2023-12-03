@@ -6,9 +6,6 @@ import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-      {/*<>*/}
-      {/*<img src={earth}/>*/}
-      {/*</>*/}
     <App />
   </React.StrictMode>,
 )
