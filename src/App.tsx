@@ -1,5 +1,6 @@
 import * as THREE from 'three'
 import './App.css'
+import {FirstPersonControls} from "three/examples/jsm/controls/FirstPersonControls.js";
 
 //Scene
 const scene = new THREE.Scene()
@@ -8,6 +9,9 @@ const scene = new THREE.Scene()
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000)
 scene.add(camera)
 camera.position.z = 6
+camera.lookAt(0, 0, 0)
+
+const clock = new THREE.Clock();
 
 //Grid helper
 // const gridHelper = new THREE.GridHelper(30, 30)
@@ -30,8 +34,6 @@ const material = new THREE.MeshPhongMaterial({
 
 //https://1.bp.blogspot.com/-UUXaK5GCj-k/UcsKJRMgkVI/AAAAAAAACfM/sePP_H08JTQ/s1600/1.jpg
 //'https://blog.playcanvas.com/assets/media/texture-earth.jpg'
-
-// const material = new THREE.MeshPhongMaterial( { color: "#00ff00" })
 
 //Mesh
 const earthMesh = new THREE.Mesh(geometry, material)
@@ -66,19 +68,31 @@ renderer.setSize(window.innerWidth, window.innerHeight)
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
 renderer.render(scene, camera)
 renderer.setAnimationLoop(animation);
+window.addEventListener('resize', onWindowResize);
+
+//Controls
+const controls = new FirstPersonControls(camera, renderer.domElement);
+controls.lookSpeed = 0.01;
+controls.movementSpeed = 0;
+
+// const controls = new OrbitControls(camera, renderer.domElement);
+// controls.enableDamping = true;
+// controls.dampingFactor = 0.01;
+// controls.screenSpacePanning = false;
 
 function animation(time: DOMHighResTimeStamp) {
     pointLight.position.x = Math.sin(time / 5000) * 3;
-    // pointLight.position.y = 5+Math.cos(time / 10000) * 3;
-
-    // earthMesh.rotation.x = time / 200000;
     earthMesh.rotation.y = time / 50000;
-    // earthMesh.rotation.z = time / 10000;
-
-    // cloudMesh.rotation.x = time / 200000;
     cloudMesh.rotation.y = time / 50000;
-
+    controls.update(clock.getDelta());
     renderer.render(scene, camera);
+}
+
+function onWindowResize() {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    controls.handleResize();
 }
 
 function App() {
