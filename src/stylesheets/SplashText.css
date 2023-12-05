@@ -1,0 +1,15 @@
+.splash-text {
+    position: absolute;
+    left: 10%;
+    top: 40%;
+    text-align: left;
+    line-height: 2;
+    letter-spacing: .5px;
+}
+
+.reach-out-btn {
+    position: absolute;
+    left: 10%;
+    bottom: 25%;
+    text-align: left;
+}

@@ -1,7 +1,10 @@
 import * as THREE from 'three'
 import './App.css'
 import {FirstPersonControls} from "three/examples/jsm/controls/FirstPersonControls.js";
-import Visor from "./components/Visor";
+import {GLTFLoader} from "three/examples/jsm/loaders/GLTFLoader.js";
+import SplashText from "./components/SplashText";
+import NavBar from "./components/NavBar";
+import ContactBar from "./components/ContactBar";
 
 
 //Scene
@@ -91,10 +94,21 @@ function onWindowResize() {
     controls.handleResize();
 }
 
+const gltfLoader = new GLTFLoader();
+gltfLoader.load('./src/assets/astronaut/scene.gltf', (gltfScene) => {
+    const model = gltfScene.scene;
+    model.position.set(1.5, -1, 4);
+    model.scale.set(.5, .5, .5);
+    model.rotation.y = - Math.PI / 4;
+    scene.add(model);
+})
+
 function App() {
     return (
         <>
-
+            <NavBar/>
+            <SplashText/>
+            <ContactBar/>
         </>
     )
 }
