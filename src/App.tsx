@@ -1,17 +1,11 @@
 import * as THREE from 'three'
 import './App.css'
 import {FirstPersonControls} from "three/examples/jsm/controls/FirstPersonControls.js";
-import leftWingLogo from '../public/visor/left-wing-logo.svg'
-import bottomLeftStats from '../public/visor/bottom-left-stats.svg'
-import bottomVisor from '../public/visor/bottom-visor.svg'
-import centerVisor from '../public/visor/center-visor.svg'
-import dateTime from '../public/visor/date-time.svg'
-import leftShoulder from '../public/visor/left-shoulder.svg'
-import rightOrbitVisor from '../public/visor/right-orbit-visor.svg'
-import rightShoulder from '../public/visor/right-shoulder.svg'
-import topRightHealth from '../public/visor/top-right-health.svg'
-import manifestLogo from '../public/visor/manifest.vel.uix.eth.eff.svg'
-import triangle from '../public/visor/triangle.svg'
+import {GLTFLoader} from "three/examples/jsm/loaders/GLTFLoader.js";
+import SplashText from "./components/SplashText";
+import NavBar from "./components/NavBar";
+import ContactBar from "./components/ContactBar";
+
 
 //Scene
 const scene = new THREE.Scene()
@@ -100,51 +94,21 @@ function onWindowResize() {
     controls.handleResize();
 }
 
+const gltfLoader = new GLTFLoader();
+gltfLoader.load('./src/assets/astronaut/scene.gltf', (gltfScene) => {
+    const model = gltfScene.scene;
+    model.position.set(1.5, -1, 4);
+    model.scale.set(.5, .5, .5);
+    model.rotation.y = - Math.PI / 4;
+    scene.add(model);
+})
+
 function App() {
     return (
         <>
-            <img src={leftWingLogo} style={{
-                position: "absolute",
-                left: 50,
-                top: (window.innerHeight / 2) - (738 / 2),
-                textAlign: "center"
-            }}/>
-            <img src={bottomLeftStats} style={{position: "absolute", left: 150, bottom: 50, textAlign: "center"}}/>
-            <img src={bottomVisor}
-                 style={{position: "absolute", left: window.innerWidth / 2, bottom: 50, textAlign: "center"}}/>
-            <img src={centerVisor} style={{
-                position: "absolute",
-                left: (window.innerWidth / 2) - (1012 / 2),
-                top: (window.innerHeight / 2) - (736 / 2),
-                textAlign: "center"
-            }}/>
-            <img src={dateTime} style={{position: "absolute", left: 150, top: 50, textAlign: "center"}}/>
-            <img src={leftShoulder} style={{
-                position: "absolute",
-                left: 270,
-                top: (window.innerHeight / 2) - (320 / 2),
-                textAlign: "center"
-            }}/>
-            <img src={rightOrbitVisor} style={{position: "absolute", right: 50, bottom: 50, textAlign: "center"}}/>
-            <img src={rightShoulder} style={{
-                position: "absolute",
-                right: 270,
-                top: (window.innerHeight / 2) - (320 / 2),
-                textAlign: "center"
-            }}/>
-            <img src={topRightHealth} style={{position: "absolute", right: 50, top: 50, textAlign: "center"}}/>
-            <img src={manifestLogo} style={{
-                position: "absolute",
-                right: 50,
-                top: (window.innerHeight / 2) - (215 / 2),
-                textAlign: "center"
-            }}/>
-            <img src={triangle} style={{
-                position: "absolute",
-                left: 50,
-                top: (window.innerHeight / 2) - (215 / 2) + 215,
-                textAlign: "center"
-            }}/>
+            <NavBar/>
+            <SplashText/>
+            <ContactBar/>
         </>
     )
 }

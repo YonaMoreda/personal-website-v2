@@ -1,0 +1,17 @@
+.ContactBar {
+    position: absolute;
+    right: 5%;
+    bottom: 5%;
+    text-align: left;
+}
+
+.ContactBar a {
+    font-weight: 500;
+}
+
+.ContactBar a img {
+    margin-left: 25px;
+    background-color: #D9D9D9;
+    padding: 10px;
+    opacity: 60%;
+}
