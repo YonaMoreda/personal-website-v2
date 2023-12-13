@@ -5,7 +5,10 @@ import {GLTFLoader} from "three/examples/jsm/loaders/GLTFLoader.js";
 import SplashText from "./components/SplashText";
 import NavBar from "./components/NavBar";
 import ContactBar from "./components/ContactBar";
+import {Group} from "three/src/Three.js";
 
+let mixer: THREE.AnimationMixer;
+let astronautModel: Group;
 
 //Scene
 const scene = new THREE.Scene()
@@ -16,13 +19,8 @@ scene.add(camera)
 camera.position.z = 6
 camera.lookAt(0, 0, 0)
 
-const clock = new THREE.Clock();
-
-//Grid helper
-// const gridHelper = new THREE.GridHelper(30, 30)
-// scene.add(gridHelper)
-// const axesHelper = new THREE.AxesHelper(10)
-// scene.add(axesHelper)
+const clockForAstronaut = new THREE.Clock();
+const clockForControls = new THREE.Clock();
 
 //Geometry
 const geometry = new THREE.SphereGeometry(3, 64, 64)
@@ -79,11 +77,34 @@ controls.movementSpeed = 0;
 // controls.dampingFactor = 0.01;
 // controls.screenSpacePanning = false;
 
+const gltfLoader = new GLTFLoader();
+gltfLoader.load('./src/assets/astronaut/scene.gltf', (gltfScene) => {
+    astronautModel = gltfScene.scene;
+    astronautModel.position.set(1.5, 0, 4);
+    // astronautModel.position.set(1.5, -1, 4);
+    astronautModel.scale.set(.5, .5, .5);
+    astronautModel.rotation.y = -Math.PI / 4;
+    mixer = new THREE.AnimationMixer(astronautModel);
+    mixer.clipAction(gltfScene.animations[3]).play();
+    scene.add(astronautModel);
+})
+
 function animation(time: DOMHighResTimeStamp) {
     pointLight.position.x = Math.sin(time / 5000) * 3;
     earthMesh.rotation.y = time / 50000;
     cloudMesh.rotation.y = time / 50000;
-    controls.update(clock.getDelta());
+
+    if (mixer) {
+        // astronautModel.position.y += 0.01
+        // astronautModel.position.y %= -3
+        astronautModel.position.y = 2 * Math.sin(time / 4000)
+        astronautModel.rotation.y = 2 * Math.sin(time / 4000)
+        astronautModel.rotation.z = 4 * Math.sin(time / 9000)
+        // astronautModel.position.z += 0.000
+        // astronautModel.position.y += 0.2025*Math.sin(time / 500)
+        mixer.update(clockForAstronaut.getDelta());
+    }
+    controls.update(clockForControls.getDelta());
     renderer.render(scene, camera);
 }
 
@@ -93,15 +114,6 @@ function onWindowResize() {
     renderer.setSize(window.innerWidth, window.innerHeight);
     controls.handleResize();
 }
-
-const gltfLoader = new GLTFLoader();
-gltfLoader.load('./src/assets/astronaut/scene.gltf', (gltfScene) => {
-    const model = gltfScene.scene;
-    model.position.set(1.5, -1, 4);
-    model.scale.set(.5, .5, .5);
-    model.rotation.y = - Math.PI / 4;
-    scene.add(model);
-})
 
 function App() {
     return (

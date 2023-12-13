@@ -10,6 +10,30 @@
 .reach-out-btn {
     position: absolute;
     left: 10%;
-    bottom: 25%;
+    bottom: 20%;
     text-align: left;
+}
+
+.explore-btn {
+    position: absolute;
+    left: 17%;
+    bottom: 20%;
+    text-align: left;
+}
+
+.look-around-img {
+    position: absolute;
+    left: 50%;
+    bottom: 10%;
+    opacity: 70%;
+    width: 50px;
+    animation-name: example;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes example {
+    from {bottom: 5%}
+    to {bottom: 10%;}
 }
