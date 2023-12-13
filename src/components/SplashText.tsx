@@ -1,20 +1,21 @@
 import '../stylesheets/SplashText.css'
+import lookAround from '../../public/look-around.svg'
 
 function SplashText() {
     return (
         <>
             <div className="splash-text">
-                <h1>Hey, this is Yona Moreda</h1>
-                <p style={{textAlign: "right"}}>(from space?)<br/><br/></p>
-                <p>Thanks for your interest in visiting my website.</p>
-
-                <p>________</p>
-                <p>I am Software Engineer currently working in the AWS clouds (Rabobank).</p>
-                <p>I have passion for creating software such as the one you are seeing right now.</p>
-                <p>Feel free to look around and provide feedback if you have so.</p>
+                <h1 id="header-intro"/>
+                <p id="header-subtitle" style={{textAlign: "right"}}/>
+                <p id="subintro"/>
+                <p id="underscore"/>
+                <p id="description"/>
+                <p id="working-since"/>
+                <p id="passion-description"/>
             </div>
-            <button className="reach-out-btn">Reach out</button>
-
+            <button id='reach-out-btn-id' className="reach-out-btn" hidden disabled>Reach out</button>
+            <button id='explore-btn-id' className="explore-btn" hidden disabled>Explore</button>
+            <img className="look-around-img" src={lookAround}/>
         </>
     )
 }
