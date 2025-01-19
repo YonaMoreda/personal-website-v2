@@ -1,11 +1,11 @@
 import * as THREE from 'three'
 import './App.css'
-import {FirstPersonControls} from "three/examples/jsm/controls/FirstPersonControls.js";
 import {GLTFLoader} from "three/examples/jsm/loaders/GLTFLoader.js";
 import SplashText from "./components/SplashText";
 import NavBar from "./components/NavBar";
 import ContactBar from "./components/ContactBar";
 import {Group} from "three/src/Three.js";
+import {OrbitControls} from "three/examples/jsm/controls/OrbitControls.js";
 
 let mixer: THREE.AnimationMixer;
 let astronautModel: Group;
@@ -68,14 +68,11 @@ renderer.setAnimationLoop(animation);
 window.addEventListener('resize', onWindowResize);
 
 //Controls
-const controls = new FirstPersonControls(camera, renderer.domElement);
-controls.lookSpeed = 0.01;
-controls.movementSpeed = 0;
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true;
+controls.dampingFactor = 0.001;
+controls.screenSpacePanning = false;
 
-// const controls = new OrbitControls(camera, renderer.domElement);
-// controls.enableDamping = true;
-// controls.dampingFactor = 0.01;
-// controls.screenSpacePanning = false;
 
 const gltfLoader = new GLTFLoader();
 gltfLoader.load('./src/assets/astronaut/scene.gltf', (gltfScene) => {
@@ -112,7 +109,6 @@ function onWindowResize() {
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
     renderer.setSize(window.innerWidth, window.innerHeight);
-    controls.handleResize();
 }
 
 function App() {
