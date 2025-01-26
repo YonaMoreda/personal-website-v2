@@ -12,6 +12,9 @@ let astronautModel: Group;
 
 //Scene
 const scene = new THREE.Scene()
+scene.background = new THREE.CubeTextureLoader()
+    .setPath('textures/cubeMaps/')
+    .load([]);
 
 //Camera
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000)
@@ -72,6 +75,7 @@ const controls = new OrbitControls(camera, renderer.domElement);
 controls.enableDamping = true;
 controls.dampingFactor = 0.001;
 controls.screenSpacePanning = false;
+controls.enableZoom = false;
 
 
 const gltfLoader = new GLTFLoader();
