@@ -27,9 +27,9 @@ const geometry = new THREE.SphereGeometry(3, 64, 64)
 
 //Material
 const material = new THREE.MeshPhongMaterial({
-    map: new THREE.TextureLoader().load('8k-earth-daymap-annotated.jpg'),
-    normalMap: new THREE.TextureLoader().load('2k_earth_normal_map.tif'),
-    specularMap: new THREE.TextureLoader().load('2k_earth_specular_map.tif')
+    map: new THREE.TextureLoader().load('earth-textures/8k-earth-daymap-annotated.jpg'),
+    normalMap: new THREE.TextureLoader().load('earth-textures/2k_earth_normal_map.tif'),
+    specularMap: new THREE.TextureLoader().load('earth-textures/2k_earth_specular_map.tif')
 });
 
 //Mesh
@@ -41,7 +41,7 @@ scene.add(earthMesh)
 //Clouds
 const cloudGeometry = new THREE.SphereGeometry(3.01, 64, 64)
 const cloudMaterial = new THREE.MeshPhongMaterial({
-    map: new THREE.TextureLoader().load('2k_earth_clouds.jpg'),
+    map: new THREE.TextureLoader().load('earth-textures/2k_earth_clouds.jpg'),
     transparent: true,
     opacity: 0.2,
     depthWrite: false,

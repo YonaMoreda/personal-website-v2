@@ -27,9 +27,9 @@ const geometry = new THREE.SphereGeometry(3, 64, 64)
 
 //Material
 const material = new THREE.MeshPhongMaterial({
-    map: new THREE.TextureLoader().load('8k-earth-nightmap.jpg'),
-    normalMap: new THREE.TextureLoader().load('8k-earth-normal-map.tif'),
-    specularMap: new THREE.TextureLoader().load('8k-earth-specular-map.tif')
+    map: new THREE.TextureLoader().load('earth-textures/8k-earth-nightmap.jpg'),
+    normalMap: new THREE.TextureLoader().load('earth-textures/8k-earth-normal-map.tif'),
+    specularMap: new THREE.TextureLoader().load('earth-textures/8k-earth-specular-map.tif')
 });
 
 //Mesh
@@ -39,7 +39,7 @@ scene.add(earthMesh)
 //Clouds
 const cloudGeometry = new THREE.SphereGeometry(3.01, 64, 64)
 const cloudMaterial = new THREE.MeshPhongMaterial({
-    map: new THREE.TextureLoader().load('8k-earth-clouds.jpg'),
+    map: new THREE.TextureLoader().load('earth-textures/8k-earth-clouds.jpg'),
     transparent: true,
     opacity: 0.5,
     depthWrite: false,
@@ -75,7 +75,7 @@ controls.screenSpacePanning = false;
 
 
 const gltfLoader = new GLTFLoader();
-gltfLoader.load(`${window.location.origin}//astronaut/scene.gltf`, (gltfScene) => {
+gltfLoader.load(`${window.location.origin}/astronaut/scene.gltf`, (gltfScene) => {
     astronautModel = gltfScene.scene;
     astronautModel.position.set(1.5, 0, 4);
     astronautModel.scale.set(.5, .5, .5);
