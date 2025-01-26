@@ -4,7 +4,7 @@ import {useState, useEffect} from 'react';
 
 function dateDiff(date1: Date, date2: Date) {
     const diff = new Date(date2.getTime() - date1.getTime())
-    return diff.getFullYear() - 1970 + ' years' + (diff.getMonth() ? ', ' + diff.getMonth() + ' months' : '') + (diff.getDate() ? ', ' + diff.getDate() + ' days' : '') + (diff.getHours() ? ', ' + diff.getHours() + ' hours' : '') + (diff.getMinutes() ? ', ' + diff.getMinutes() + ' minutes' : '') + (diff.getSeconds() ? ' and ' + diff.getSeconds() + ' seconds' : '') + ' ago.'
+    return diff.getFullYear() - 1970 + 'Y' + (diff.getMonth() ? ':' + diff.getMonth() + 'M' : '') + (diff.getDate() ? ':' + diff.getDate() + 'D' : '') + (diff.getHours() ? '] and [' + diff.getHours() + 'H' : '') + (diff.getMinutes() ? ':' + diff.getMinutes() + 'm' : '') + (diff.getSeconds() ? ':' + diff.getSeconds() + 's' : '')
 }
 
 function SplashText() {
@@ -42,13 +42,15 @@ function SplashText() {
                 <p id="subintro"/>
                 <p id="underscore">________</p>
                 <p id="description">I am backend Software Engineer currently working in Rabobank since</p>
-                <p id="working-since">{workingSince}</p>
+                <p id="working-since">[{workingSince}] ago.</p>
                 <br/>
                 <p id="passion-description">I have passion for creating software and solving difficult challenges.</p>
                 <p>Feel free to reach out in case you have questions or feedback.</p>
             </div>
-            <button id='reach-out-btn-id' className="reach-out-btn" hidden disabled>Reach out</button>
-            <button id='explore-btn-id' className="explore-btn" hidden disabled>Explore</button>
+            <div className="call-to-action-container">
+                <button id='reach-out-btn-id' className="reach-out-btn">Contact</button>
+                <button id='explore-btn-id' className="explore-btn">Explore more</button>
+            </div>
             <img alt={"drag-around-image"} className="drag-around-img" src={lookAround}/>
         </>
     )

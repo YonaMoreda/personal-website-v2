@@ -75,7 +75,7 @@ controls.screenSpacePanning = false;
 
 
 const gltfLoader = new GLTFLoader();
-gltfLoader.load(`${window.location.origin}/astronaut/scene.gltf`, (gltfScene) => {
+gltfLoader.load("./astronaut/scene.gltf", (gltfScene) => {
     astronautModel = gltfScene.scene;
     astronautModel.position.set(1.5, 0, 4);
     astronautModel.scale.set(.5, .5, .5);
