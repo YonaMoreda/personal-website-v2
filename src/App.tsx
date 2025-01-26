@@ -62,12 +62,12 @@ const ambientLight = new THREE.AmbientLight(0xffffff, 0.2)
 scene.add(ambientLight)
 
 //Renderer
-const canvas = document.querySelector('#webgl')!
-const renderer = new THREE.WebGLRenderer({canvas: canvas})
+const renderer = new THREE.WebGLRenderer()
 renderer.setSize(window.innerWidth, window.innerHeight)
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
 renderer.render(scene, camera)
 renderer.setAnimationLoop(animation);
+document.body.appendChild(renderer.domElement);
 window.addEventListener('resize', onWindowResize);
 
 //Controls
