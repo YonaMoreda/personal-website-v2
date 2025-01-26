@@ -6,7 +6,6 @@ import NavBar from "./components/NavBar";
 import ContactBar from "./components/ContactBar";
 import {Group} from "three/src/Three.js";
 import {OrbitControls} from "three/examples/jsm/controls/OrbitControls.js";
-// import astronautScene from ;
 
 let mixer: THREE.AnimationMixer;
 let astronautModel: Group;
@@ -76,10 +75,9 @@ controls.screenSpacePanning = false;
 
 
 const gltfLoader = new GLTFLoader();
-gltfLoader.load('./public/astronaut/scene.gltf', (gltfScene) => {
+gltfLoader.load(`${process.env.PUBLIC_URL}/astronaut/scene.gltf`, (gltfScene) => {
     astronautModel = gltfScene.scene;
     astronautModel.position.set(1.5, 0, 4);
-    // astronautModel.position.set(1.5, -1, 4);
     astronautModel.scale.set(.5, .5, .5);
     astronautModel.rotation.y = -Math.PI / 4;
     mixer = new THREE.AnimationMixer(astronautModel);
@@ -93,13 +91,9 @@ function animation(time: DOMHighResTimeStamp) {
     cloudMesh.rotation.y = time / 50000;
 
     if (mixer) {
-        // astronautModel.position.y += 0.01
-        // astronautModel.position.y %= -3
         astronautModel.position.y = 2 * Math.sin(time / 4000)
         astronautModel.rotation.y = 2 * Math.sin(time / 4000)
         astronautModel.rotation.z = 4 * Math.sin(time / 9000)
-        // astronautModel.position.z += 0.000
-        // astronautModel.position.y += 0.2025*Math.sin(time / 500)
         mixer.update(clockForAstronaut.getDelta());
     }
     controls.update(clockForControls.getDelta());

@@ -56,50 +56,6 @@ function SplashText() {
 
 export default SplashText;
 
-// let i = 0
-//
-// const headerSubTitle = '(floating above the AWS clouds)'
-// const subIntro = 'Thanks for your interest in visiting my personal website.'
-// const underscore = '________'
-// const description = 'I am backend Software Engineer currently working in Rabobank since'
-// let workingSince = dateDiff(new Date('2020-12-15'), new Date())
-// const passionDescription = 'I have passion for creating software such as the one you are seeing right now. Feel free to reach out in case you have questions or feedback.'
-//
-// let speed = 100
-//
-// window.onload = function typeWriter () {
-//   if (i < headerIntro.length + headerSubTitle.length + subIntro.length + underscore.length + description.length + workingSince.length + passionDescription.length) {
-//     if (i === 78 + headerIntro.length + headerSubTitle.length + subIntro.length + underscore.length + description.length + workingSince.length) {
-//       document.getElementById('passion-description').innerHTML += '<br/>'
-//     }
-//     if (i === headerIntro.length + headerSubTitle.length) {
-//       document.getElementById('header-subtitle').innerHTML += '<br/><br/>'
-//     }
-//     if (i === headerIntro.length + headerSubTitle.length + subIntro.length + underscore.length + description.length + workingSince.length + passionDescription.length - 1) {
-//       document.getElementById('reach-out-btn-id').hidden = false
-//       document.getElementById('explore-btn-id').hidden = false
-//     }
-//     if (i < headerIntro.length) {
-//       document.getElementById('header-intro').innerHTML += headerIntro.charAt(i)
-//     } else if (i < headerIntro.length + headerSubTitle.length) {
-//       document.getElementById('header-subtitle').innerHTML += headerSubTitle.charAt(i - headerIntro.length)
-//     } else if (i < headerIntro.length + headerSubTitle.length + subIntro.length) {
-//       speed = 50
-//       document.getElementById('subintro').innerHTML += subIntro.charAt(i - headerIntro.length - headerSubTitle.length)
-//     } else if (i < headerIntro.length + headerSubTitle.length + subIntro.length + underscore.length) {
-//       document.getElementById('underscore').innerHTML += underscore.charAt(i - headerIntro.length - headerSubTitle.length - subIntro.length)
-//     } else if (i < headerIntro.length + headerSubTitle.length + subIntro.length + underscore.length + description.length) {
-//       speed = 30
-//       document.getElementById('description').innerHTML += description.charAt(i - headerIntro.length - headerSubTitle.length - subIntro.length - underscore.length)
-//     } else if (i < headerIntro.length + headerSubTitle.length + subIntro.length + underscore.length + description.length + workingSince.length) {
-//       document.getElementById('working-since').innerHTML += workingSince.charAt(i - headerIntro.length - headerSubTitle.length - subIntro.length - underscore.length - description.length)
-//     } else {
-//       document.getElementById('passion-description').innerHTML += passionDescription.charAt(i - headerIntro.length - headerSubTitle.length - subIntro.length - underscore.length - description.length - workingSince.length)
-//     }
-//     i++
-//     setTimeout(typeWriter, speed)
-//   }
-
 
 // var canvas = document.getElementById('webgl');
 // var canvasJourney = document.getElementById('webgl-journey');
