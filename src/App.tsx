@@ -6,6 +6,7 @@ import NavBar from "./components/NavBar";
 import ContactBar from "./components/ContactBar";
 import {Group} from "three/src/Three.js";
 import {OrbitControls} from "three/examples/jsm/controls/OrbitControls.js";
+import Contact from "./components/Contact.tsx";
 
 let mixer: THREE.AnimationMixer;
 let astronautModel: Group;
@@ -115,6 +116,8 @@ function App() {
         <>
             <NavBar/>
             <SplashText/>
+            {/*or*/}
+            <Contact />
             <ContactBar/>
         </>
     )
