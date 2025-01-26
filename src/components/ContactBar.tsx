@@ -6,7 +6,7 @@ function ContactBar() {
     return (
         <div className="ContactBar">
             <a href={"https://github.com/YonaMoreda/"}><img style={{borderRadius: "50%"}} src={githubLogo}/></a>
-            <a href={"https://nl.linkedin.com/in/yona-moreda-116154141"}><img src={linkedinLogo}/></a>
+            <a href={"https://nl.linkedin.com/in/yona-moreda-116154141"}><img src={linkedinLogo} alt={'linkedin'}/></a>
         </div>
     )
 }

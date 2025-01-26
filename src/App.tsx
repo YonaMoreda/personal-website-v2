@@ -6,6 +6,7 @@ import NavBar from "./components/NavBar";
 import ContactBar from "./components/ContactBar";
 import {Group} from "three/src/Three.js";
 import {OrbitControls} from "three/examples/jsm/controls/OrbitControls.js";
+// import astronautScene from ;
 
 let mixer: THREE.AnimationMixer;
 let astronautModel: Group;
@@ -75,7 +76,7 @@ controls.screenSpacePanning = false;
 
 
 const gltfLoader = new GLTFLoader();
-gltfLoader.load('./src/assets/astronaut/scene.gltf', (gltfScene) => {
+gltfLoader.load('./public/astronaut/scene.gltf', (gltfScene) => {
     astronautModel = gltfScene.scene;
     astronautModel.position.set(1.5, 0, 4);
     // astronautModel.position.set(1.5, -1, 4);
