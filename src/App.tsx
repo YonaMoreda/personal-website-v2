@@ -8,6 +8,7 @@ import {Group} from "three/src/Three.js";
 import {OrbitControls} from "three/examples/jsm/controls/OrbitControls.js";
 import Contact from "./components/Contact.tsx";
 import { useRef} from 'react';
+import ModelAttribution from "./components/ModelAttribution.tsx";
 
 let mixer: THREE.AnimationMixer;
 let astronautModel: Group;
@@ -119,10 +120,11 @@ function App() {
     return (
         <>
             {/*<Visor/>*/}
-            <NavBar/>
+            <NavBar scrollToRef={contactRef}/>
             <SplashText scrollToRef={contactRef} />
             <ContactBar/>
             <Contact ref={contactRef}/>
+            <ModelAttribution/>
         </>
     )
 }

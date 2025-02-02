@@ -10,7 +10,8 @@
 .reach-out-btn {
     text-align: left;
     border-radius: 15px;
-    border: 1px solid #1e1eaa;
+    border: 1px solid #1a1a1a;
+    background-color: #1e1eaa;
     margin-top: 10px;
 }
 

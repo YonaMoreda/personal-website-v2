@@ -1,0 +1,12 @@
+.model-attribution {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    opacity: 70%;
+    background: white;
+    color: black;
+    font-size: .6em;
+    border-radius: 5px;
+    padding-left: .7em;
+    padding-right: 1em;
+}
