@@ -44,13 +44,11 @@ function SplashText() {
                 <p id="description">I am backend Software Engineer currently working in Rabobank since</p>
                 <p id="working-since">[{workingSince}] ago.</p>
                 <br/>
-                <p id="passion-description">I have passion for creating software and solving difficult challenges.</p>
-                <p>Feel free to reach out in case you have questions or feedback.</p>
+                <div className="call-to-action-container">
+                    <button id='reach-out-btn-id' className="reach-out-btn">Leave a message</button>
+                </div>
             </div>
-            <div className="call-to-action-container">
-                <button id='reach-out-btn-id' className="reach-out-btn">Contact</button>
-                <button id='explore-btn-id' className="explore-btn">Explore more</button>
-            </div>
+
             <img alt={"drag-around-image"} className="drag-around-img" src={lookAround}/>
         </>
     )

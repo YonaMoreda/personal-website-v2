@@ -7,6 +7,7 @@ import ContactBar from "./components/ContactBar";
 import {Group} from "three/src/Three.js";
 import {OrbitControls} from "three/examples/jsm/controls/OrbitControls.js";
 import Contact from "./components/Contact.tsx";
+import { MutableRefObject, useRef} from 'react';
 
 let mixer: THREE.AnimationMixer;
 let astronautModel: Group;
@@ -111,13 +112,18 @@ function onWindowResize() {
     renderer.setSize(window.innerWidth, window.innerHeight);
 }
 
+const scrollToRef = (ref: MutableRefObject<number>) => window.scrollTo(0, ref.current.offsetTop)
+
 function App() {
+    const myRef = useRef(0)
+    const executeScroll = () => scrollToRef(myRef)
+
     return (
         <>
             <NavBar/>
             <SplashText/>
             {/*or*/}
-            <Contact />
+            <Contact ref={myRef} onClick={executeScroll}/>
             <ContactBar/>
         </>
     )
