@@ -39,11 +39,17 @@
     padding-right: 1%;
 }
 
-.contact-message-email {
+.contact-message-name-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: .5em;
+}
+
+.contact-message-name {
     margin-top: 1%;
     height: 2.7em;
     font-size: 1.3em;
-    width: 100%;
+    width: 49%;
     font-family: inherit;
     padding: .7em;
     resize: none;
