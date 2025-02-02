@@ -7,12 +7,18 @@ const emailTemplate: string = "Hello from {firstname} {lastname}!%0D%0A%0D%0A" +
     "{firstname} {lastname} ({contactType})"
 const Contact = forwardRef<HTMLDivElement>((_, ref) => {
     function sendEmail() {
-        const firstname: string = document.getElementById('contact-message-firstname-id')?.value;
-        const lastname: string = document.getElementById('contact-message-lastname-id')?.value;
-        const message: string = document.getElementById('contact-message-id')?.value;
-        let contactType = document.getElementById('private')?.checked ? document.getElementById('private')?.value : '';
-        contactType += document.getElementById('business')?.checked ? document.getElementById('business')?.value : '';
-        contactType += document.getElementById('other')?.checked ? document.getElementById('other')?.value : '';
+        const firstname: string = (document.getElementById('contact-message-firstname-id') as HTMLInputElement).value
+        const lastname: string = (document.getElementById('contact-message-lastname-id') as HTMLInputElement).value;
+        const message: string = (document.getElementById('contact-message-id') as HTMLInputElement).value;
+
+        const privateElem = (document.getElementById('private') as HTMLInputElement);
+        const businessElem = (document.getElementById('business') as HTMLInputElement);
+        const otherElem = (document.getElementById('other') as HTMLInputElement);
+
+        let contactType = privateElem.checked ? privateElem.value : '';
+        contactType += businessElem.checked ? businessElem.value : '';
+        contactType += otherElem.checked ? otherElem.value : '';
+
         const messageBody = emailTemplate.replaceAll('{firstname}', firstname).replaceAll('{lastname}', lastname)
             .replace('{message}', message).replace('{contactType}', contactType);
         window.location.assign("mailto:yonamoreda@gmail.com?subject=A message from " + firstname + " " + lastname
