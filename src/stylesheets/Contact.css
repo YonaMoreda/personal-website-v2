@@ -57,6 +57,30 @@
     border-radius: 10px;
 }
 
+.contact-message-name {
+    margin-top: 1%;
+    height: 2.7em;
+    font-size: 1.3em;
+    width: 49%;
+    font-family: inherit;
+    padding: .7em;
+    resize: none;
+    border: 1px solid dimgray;
+    border-radius: 10px;
+}
+
+.contact-message-company{
+    margin-top: 1%;
+    height: 2.7em;
+    font-size: 1.3em;
+    width: 100%;
+    font-family: inherit;
+    padding: .7em;
+    resize: none;
+    border: 1px solid dimgray;
+    border-radius: 10px;
+}
+
 .contact-message {
     margin-top: 1%;
     margin-bottom: 2%;
