@@ -1,6 +1,7 @@
 import '../stylesheets/SplashText.css'
 import lookAround from '../../public/drag-around.svg'
 import {useState, useEffect, RefObject} from 'react';
+import ScrollToRef from "./ScrollToRef.tsx";
 
 function dateDiff(date1: Date, date2: Date) {
     const diff = new Date(date2.getTime() - date1.getTime())
@@ -33,15 +34,6 @@ function SplashText(props: { scrollToRef: RefObject<HTMLDivElement>; }) {
         return () => clearTimeout(timer);
     }, [workingSince]);
 
-    const executeScroll = (someRef:RefObject<HTMLDivElement>) => {
-        if (someRef.current) {
-            window.scrollTo({
-                top: someRef.current.offsetTop - 100,
-                behavior: "smooth", // Smooth scrolling effect
-            });
-        }
-    };
-
     return (
         <>
             <div className="splash-text">
@@ -54,7 +46,7 @@ function SplashText(props: { scrollToRef: RefObject<HTMLDivElement>; }) {
                 <p id="working-since">[{workingSince}] ago.</p>
                 <br/>
                 <div className="call-to-action-container">
-                    <button id='reach-out-btn-id' className="reach-out-btn" onClick={() => executeScroll(props.scrollToRef)}>Leave a message</button>
+                    <button id='reach-out-btn-id' className="reach-out-btn" onClick={() => ScrollToRef(props.scrollToRef)}>Leave a message</button>
                 </div>
             </div>
 

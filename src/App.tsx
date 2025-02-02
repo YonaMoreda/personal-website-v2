@@ -118,11 +118,11 @@ function App() {
     const contactRef = useRef<HTMLDivElement>(null);
     return (
         <>
+            {/*<Visor/>*/}
             <NavBar/>
             <SplashText scrollToRef={contactRef} />
-            {/*or*/}
-            <Contact ref={contactRef}/>
             <ContactBar/>
+            <Contact ref={contactRef}/>
         </>
     )
 }
