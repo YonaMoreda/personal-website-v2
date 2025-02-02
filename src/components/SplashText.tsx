@@ -1,13 +1,13 @@
 import '../stylesheets/SplashText.css'
 import lookAround from '../../public/drag-around.svg'
-import {useState, useEffect} from 'react';
+import {useState, useEffect, RefObject} from 'react';
 
 function dateDiff(date1: Date, date2: Date) {
     const diff = new Date(date2.getTime() - date1.getTime())
     return diff.getFullYear() - 1970 + 'Y' + (diff.getMonth() ? ':' + diff.getMonth() + 'M' : '') + (diff.getDate() ? ':' + diff.getDate() + 'D' : '') + (diff.getHours() ? '] and [' + diff.getHours() + 'H' : '') + (diff.getMinutes() ? ':' + diff.getMinutes() + 'm' : '') + (diff.getSeconds() ? ':' + diff.getSeconds() + 's' : '')
 }
 
-function SplashText() {
+function SplashText(props: { scrollToRef: RefObject<HTMLDivElement>; }) {
     const [introIndex, setIntroIndex] = useState(0);
     const [workingSince, setWorkingSince] = useState(dateDiff(new Date('2020-12-15'), new Date()));
     const HEADER_INTRO_TEXT = 'Hi, this is { Yona Moreda }.'
@@ -33,6 +33,15 @@ function SplashText() {
         return () => clearTimeout(timer);
     }, [workingSince]);
 
+    const executeScroll = (someRef:RefObject<HTMLDivElement>) => {
+        if (someRef.current) {
+            window.scrollTo({
+                top: someRef.current.offsetTop - 100,
+                behavior: "smooth", // Smooth scrolling effect
+            });
+        }
+    };
+
     return (
         <>
             <div className="splash-text">
@@ -45,7 +54,7 @@ function SplashText() {
                 <p id="working-since">[{workingSince}] ago.</p>
                 <br/>
                 <div className="call-to-action-container">
-                    <button id='reach-out-btn-id' className="reach-out-btn">Leave a message</button>
+                    <button id='reach-out-btn-id' className="reach-out-btn" onClick={() => executeScroll(props.scrollToRef)}>Leave a message</button>
                 </div>
             </div>
 

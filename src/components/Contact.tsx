@@ -1,9 +1,10 @@
 import '../stylesheets/Contact.css'
+import { forwardRef } from "react";
 
 
-function Contact() {
+const Contact= forwardRef<HTMLDivElement>((_, ref) => {
     return (
-        <div className="contact">
+        <div className="contact" ref={ref}>
             <h1 className="message-header">Leave a message</h1>
             <div className="contact-type">
                 <input className="contact-type-input" type="radio" id="private" name="contact-type" value="private"/>
@@ -20,6 +21,6 @@ function Contact() {
             <button className="reach-out-btn">Send 🚀</button>
         </div>
     )
-}
+});
 
 export default Contact;
