@@ -6,11 +6,12 @@
     line-height: 2;
     letter-spacing: .5px;
     padding-bottom: 10%;
+    overflow-x: auto;
 }
 
 .projects-container {
     display: flex;
-    gap: 10%;
+    gap: 5%;
 }
 
 .projects-title {
@@ -25,11 +26,11 @@
 }
 
 .project-screenshot img {
-    width: 100%;
+    width: 300px;
 }
 
 .project-screenshot video {
-    width: 100%;
+    width: 400px;
 }
 .project-title {
     text-align: center;
