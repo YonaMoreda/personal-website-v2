@@ -1,14 +1,14 @@
 .NavBar {
-    overflow: hidden;
     width: 380px;
-    position: absolute;
-    right: 5%;
-    top: 5%;
+    position: fixed;
+    right: 0;
+    top: 3%;
     text-align: left;
     list-style-type: none;
     margin: 0;
     padding: 0;
     display: block;
+    z-index: 1;
 }
 
 .NavBar-element {
