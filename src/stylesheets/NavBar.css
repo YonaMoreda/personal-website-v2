@@ -11,7 +11,7 @@
     display: block;
 }
 
-.NavBar a {
+.NavBar-element {
     text-decoration: none;
     display: inline-block;
     float: left;
@@ -21,7 +21,7 @@
     color: white;
 }
 
-.NavBar a:hover {
+.NavBar-element:hover {
     background-color: rgba(30, 30, 170, 0.5);
     color: white;
     border-radius: 10%;
