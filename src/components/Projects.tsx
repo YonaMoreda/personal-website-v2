@@ -67,7 +67,7 @@ const Projects= forwardRef<HTMLDivElement>((_, ref) => {
                     <div className="project-screenshot">
                         <img src={raycastScreenshot} alt={'ray-cast-gif'} style={{width:'450px'}}/>
                     </div>
-                    <div className="project-title" style={{paddingTop: '25%'}}>Ray casting (2.5D game)</div>
+                    <div className="project-title" style={{paddingTop: '10%'}}>Ray casting (2.5D game)</div>
                     <div className="project-description" style={{}}>
                         A JavaFX app that recreates doom-style 2.5D rendering
                         using ray casting where a pure 2D plane creates an impression of 3D space.

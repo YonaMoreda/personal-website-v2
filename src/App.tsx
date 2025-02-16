@@ -10,6 +10,7 @@ import Contact from "./components/Contact.tsx";
 import {useRef} from 'react';
 import ModelAttribution from "./components/ModelAttribution.tsx";
 import Projects from "./components/Projects.tsx";
+import About from "./components/About.tsx";
 
 let mixer: THREE.AnimationMixer;
 let astronautModel: Group;
@@ -116,15 +117,18 @@ function onWindowResize() {
 
 
 function App() {
+    const homeRef = useRef<HTMLDivElement>(null);
     const contactRef = useRef<HTMLDivElement>(null);
     const projectsRef = useRef<HTMLDivElement>(null);
+    const aboutRef = useRef<HTMLDivElement>(null);
     return (
         <>
             {/*<Visor/>*/}
-            <NavBar contactRef={contactRef} projectsRef={projectsRef}/>
-            <SplashText contactRef={contactRef}/>
+            <NavBar homeRef={homeRef} contactRef={contactRef} projectsRef={projectsRef} aboutRef={aboutRef}/>
+            <SplashText ref={homeRef} contactRef={contactRef}/>
             <ContactBar/>
             <Projects ref={projectsRef}/>
+            <About ref={aboutRef}/>
             <Contact ref={contactRef}/>
             <ModelAttribution/>
         </>

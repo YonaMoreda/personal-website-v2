@@ -1,0 +1,32 @@
+.about{
+    position: absolute;
+    left: 10%;
+    top: 235%;
+    text-align: left;
+    line-height: 2;
+    letter-spacing: .5px;
+    width: 100%;
+    padding-bottom: 10%;
+}
+
+.about-title {
+    font-size: 2.5rem;
+    padding-bottom: 3%;
+}
+
+.about-container {
+    padding-top: 10%;
+    display: flex;
+    gap: 8%;
+}
+
+.about-description{
+    display: inline-block;
+    width: 40%;
+}
+
+.profile-image img{
+    width: 450px;
+    display: inline-block;
+    border-radius: 5%;
+}

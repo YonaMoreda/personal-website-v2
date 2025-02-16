@@ -1,6 +1,6 @@
 import '../stylesheets/SplashText.css'
 import lookAround from '../../public/drag-around.svg'
-import {useState, useEffect, RefObject} from 'react';
+import {useState, useEffect, RefObject, forwardRef} from 'react';
 import ScrollToRef from "./ScrollToRef.tsx";
 
 function dateDiff(date1: Date, date2: Date) {
@@ -8,7 +8,11 @@ function dateDiff(date1: Date, date2: Date) {
     return diff.getFullYear() - 1970 + 'Y' + (diff.getMonth() ? ':' + diff.getMonth() + 'M' : '') + (diff.getDate() ? ':' + diff.getDate() + 'D' : '') + (diff.getHours() ? '] and [' + diff.getHours() + 'H' : '') + (diff.getMinutes() ? ':' + diff.getMinutes() + 'm' : '') + (diff.getSeconds() ? ':' + diff.getSeconds() + 's' : '')
 }
 
-function SplashText(props: { contactRef: RefObject<HTMLDivElement>; }) {
+interface SplashTextProps {
+    contactRef: RefObject<HTMLDivElement>;
+}
+
+const SplashText= forwardRef<HTMLDivElement, SplashTextProps> ((props,  ref)=> {
     const [introIndex, setIntroIndex] = useState(0);
     const [workingSince, setWorkingSince] = useState(dateDiff(new Date('2020-12-15'), new Date()));
     const HEADER_INTRO_TEXT = 'Hi, this is { Yona Moreda }.'
@@ -35,7 +39,7 @@ function SplashText(props: { contactRef: RefObject<HTMLDivElement>; }) {
     }, [workingSince]);
 
     return (
-        <>
+        <div className={'home'} ref={ref}>
             <div className="splash-text">
                 <h1 id="header-intro">{HEADER_INTRO_TEXT.slice(0, introIndex)}</h1>
                 <p id="header-subtitle"
@@ -51,9 +55,9 @@ function SplashText(props: { contactRef: RefObject<HTMLDivElement>; }) {
             </div>
 
             <img alt={"drag-around-image"} className="drag-around-img" src={lookAround}/>
-        </>
+        </div>
     )
-}
+});
 
 export default SplashText;
 

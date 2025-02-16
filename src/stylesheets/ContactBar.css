@@ -1,5 +1,5 @@
 .ContactBar {
-    position: absolute;
+    position: fixed;
     right: 5%;
     bottom: 5%;
     text-align: left;
